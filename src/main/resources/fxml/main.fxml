@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="994.0" prefWidth="1841.0" styleClass="com.pdi.view.css.application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.samuka.opencv.controller.MainController">
+   <top>
+      <Pane BorderPane.alignment="TOP_LEFT">
+         <children>
+            <TabPane fx:id="tpParametros" layoutX="13.0" prefHeight="100.0" prefWidth="1841.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Pixel Manipule">
+                  <content>
+                    <AnchorPane fx:id="btGrayScale" minHeight="0.0" minWidth="0.0" prefHeight="50.0" prefWidth="1849.0">
+                           <children>
+                              <Button fx:id="btGrayScale" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btGrayScale" text="GrayScale" />
+                              <Button fx:id="btMediaPonderada" layoutX="338.0" layoutY="14.0" mnemonicParsing="false" onAction="#btGrayScale" text="Media Ponderada" />
+                              <TextField fx:id="mediaR" layoutX="100.0" layoutY="14.0" prefHeight="25.0" prefWidth="47.0" promptText="Red" />
+                              <TextField fx:id="mediaG" layoutX="154.0" layoutY="14.0" prefHeight="25.0" prefWidth="47.0" promptText="Grenn" />
+                              <TextField fx:id="mediaB" layoutX="210.0" layoutY="14.0" prefHeight="25.0" prefWidth="47.0" promptText="Blue" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Vários">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    	<children>
+                              <Button fx:id="btGrayScale" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btNegativa" text="Negativa" />
+                              <Button fx:id="btGirarImagem" layoutX="89.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtGirarImagem" text="Girar" />
+                              <Button fx:id="btAumentarImagem" layoutX="140.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtAumentarImagem" text="Aumentar" />
+                              <Button fx:id="btDiminuirImagem" layoutX="217.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtDiminuirImagem" text="Mininuir" />
+                           </children>
+                     </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Limiarização">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="62.0" prefWidth="486.0">
+                           <children>
+                              <Slider fx:id="slLimiarizacao" layoutX="187.0" layoutY="13.0" max="255.0" prefHeight="48.0" prefWidth="559.0" showTickMarks="true" snapToTicks="true" />
+                              <TextField fx:id="tfQtdPontoCorte" layoutX="125.0" layoutY="24.0" prefHeight="25.0" prefWidth="47.0" />
+                              <Text layoutX="30.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Ponto Corte" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Ruido">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <RadioButton fx:id="rd3x3" layoutY="21.0" mnemonicParsing="false" text="3x3" />
+                              <RadioButton fx:id="rdX" layoutY="44.0" mnemonicParsing="false" text="X" />
+                              <RadioButton fx:id="rdCruz" mnemonicParsing="false" text="Cruz" />
+                              <RadioButton fx:id="rdMedia" layoutX="89.0" layoutY="13.0" mnemonicParsing="false" text="Média" />
+                              <RadioButton fx:id="rdMediana" layoutX="89.0" layoutY="36.0" mnemonicParsing="false" text="Mediana" />
+                              <Button fx:id="btActionRuido" layoutX="200.0" layoutY="23.0" mnemonicParsing="false" onAction="#onActionBtActionRuido" text="Processar" />
+                              <Button fx:id="btReexecutarRuido" layoutX="275.0" layoutY="23.0" mnemonicParsing="false" onAction="#onActionBtReexecutarRuido" prefHeight=" 25" prefWidth="25" visible="false" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Histograma">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <RadioButton fx:id="rdImagem1Histograma" layoutX="11.0" layoutY="4.0" mnemonicParsing="false" text="Imagem 1" />
+                              <RadioButton fx:id="rdImagem2Histograma" layoutX="11.0" layoutY="24.0" mnemonicParsing="false" text="Imagem 2" />
+                              <RadioButton fx:id="rdImagem3Histograma" layoutX="11.0" layoutY="44.0" mnemonicParsing="false" text="Imagem 3" />
+                              <Button fx:id="btGerarHistograma" layoutX="119.0" layoutY="20.0" mnemonicParsing="false" onAction="#onActionBtGerarHistograma" text="Gerar Histograma" />
+                              <Button fx:id="btGerarImagemEqualizada" layoutX="250" layoutY="20.0" mnemonicParsing="false" onAction="#onActionBtImagemEqualizada" text="Gerar Imagem Equalizada" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Adição / Subtração">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Text layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transparencia Imagem 1" />
+                              <Text layoutX="14.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <TextField fx:id="tfAdicaoSubtracaoT1" layoutX="153.0" layoutY="4.0" prefHeight="25.0" prefWidth="47.0" />
+                              <TextField fx:id="tfAdicaoSubtracaoT2" layoutX="153.0" layoutY="32.0" prefHeight="25.0" prefWidth="47.0" />
+                              <Button fx:id="btAdicao" layoutX="218.0" layoutY="17.0" mnemonicParsing="false" onAction="#onActionBtAdicaoImagem" text="Adição" />
+                              <Button fx:id="btSubtracao" layoutX="278.0" layoutY="17.0" mnemonicParsing="false" onAction="#onActionBtSubtracaoImagem" text="Subtração" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Bordas">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btBordasCanny" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtBordaCanny" text="Canny" />
+                              <Button fx:id="btBordasSobel" layoutX="73.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtBordaSobel" text="Sobel" />
+                              <TextField fx:id="txDdepth" layoutX="131.0" layoutY="14.0" prefHeight="25.0" prefWidth="53.0" promptText="ddepth" text="-1" />
+                              <TextField fx:id="txDx" layoutX="191.0" layoutY="14.0" prefHeight="25.0" prefWidth="53.0" promptText="dx" text="1" />
+                              <TextField fx:id="txDy" layoutX="253.0" layoutY="14.0" prefHeight="25.0" prefWidth="53.0" promptText="dy" text="0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Eros./Dilat./Segm.">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btErosao" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtErosao" text="Erosão" />
+                              <Button fx:id="btDilatacao" layoutX="75.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtDilatacao" text="Dilatação" />
+                              <Button fx:id="btSegmentacao" layoutX="152.0" layoutY="14.0" mnemonicParsing="false" onAction="#onActionBtSegmentacao" text="Segmentação" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="TrabalhoFinal">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btAjustarInclinacaoImagem" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBtAjustarInclinacaoImagem" text="Ajustar Inclinacao Imagem" />
+                              <Button fx:id="btTestarLinhas" layoutX="184.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBtTestarLinhas" text="TestarLinhas" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <Pane prefHeight="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="RED" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="R" />
+            <Text fx:id="tRed" layoutX="33.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+            <Text fill="#56bc08" layoutX="58.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="G" />
+            <Text fx:id="tGren" layoutX="81.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+            <Text fill="#0224ff" layoutX="109.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B" />
+            <Text fx:id="tBlue" layoutX="130.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+         </children></Pane>
+   </bottom>
+   <left>
+      <SplitPane fx:id="spImages" dividerPositions="0.3686868686868687, 0.5" prefHeight="785.0" prefWidth="1840.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane fx:id="imPane1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefWidth="81.0">
+               <children>
+               	<ScrollPane fx:id="sp1" fitToHeight="true" fitToWidth="true">
+                  <content>
+   	                  <ImageView fx:id="iv1" fitHeight="786.0" fitWidth="677.0" onMouseClicked="#onImageViewClick" onMouseMoved="#onImageViewMouseMove" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+   	                     <image>
+	                     </image>
+   	                  </ImageView>
+                  </content>
+                  </ScrollPane>
+               </children>
+          </AnchorPane>
+          <AnchorPane fx:id="imPane2" minHeight="0.0" minWidth="0.0" onMouseClicked="#onImageViewClick" prefHeight="232.0" prefWidth="100.0">
+          	<children>
+          		<ScrollPane fx:id="sp2" fitToHeight="true" fitToWidth="true">
+             <content>
+   	                  <ImageView fx:id="iv2" fitHeight="786.0" fitWidth="677.0" onMouseClicked="#onImageViewClick" onMouseMoved="#onImageViewMouseMove" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+   	                     <image>
+	                     </image>
+   	                  </ImageView>
+             </content>
+                  </ScrollPane>
+               </children>
+          </AnchorPane>
+          <AnchorPane fx:id="imPane3" minHeight="0.0" minWidth="0.0" onMouseClicked="#onImageViewClick" prefHeight="783.0" prefWidth="459.0">
+          	<children>
+          		<ScrollPane fx:id="sp3" fitToHeight="true" fitToWidth="true">
+             <content>
+                  <ImageView fx:id="iv3" fitHeight="786.0" fitWidth="677.0" onMouseClicked="#onImageViewClick" onMouseMoved="#onImageViewMouseMove" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                     </image>
+                  </ImageView>
+                  </content>
+                  </ScrollPane>
+               </children>
+          </AnchorPane>
+        </items>
+      </SplitPane>
+   </left>
+</BorderPane>

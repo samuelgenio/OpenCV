@@ -1,0 +1,11 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+#btReexecutarRuido {
+	/*-fx-background-color: #000;*/
+	-fx-background-image: url(../../images/refresh.png);
+	
+}
+
+BarChart.default-color0.chart-bar {-fx-background-color: red;}
+BarChart.default-color1.chart-bar {-fx-background-color: blue;}
+BarChart.default-color2.chart-bar {-fx-background-color: green ;}
