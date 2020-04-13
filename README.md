@@ -1,2 +1,2 @@
 # OpenCV
-Utilização de diversas funcionalidades da biblioteca OpenCV
+Utilização de diversas funcionalidades da biblioteca OpenCV.
