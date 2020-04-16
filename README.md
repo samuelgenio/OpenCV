@@ -2,7 +2,7 @@
 
 Utilização de diversas funcionalidades da biblioteca OpenCV..
 
-Implmentações realizadas:
+Implementações realizadas:
 
 * GrayScale;
 * Média Ponderada;
